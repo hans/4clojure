@@ -17,7 +17,8 @@
                  [incanter/incanter-charts "1.3.0"]
                  [commons-lang "2.6"]
                  [org.apache.commons/commons-email "1.2"]
-                 [org.clojure/data.xml "0.0.5"]]
+                 [org.clojure/data.xml "0.0.5"]
+                 [com.taoensso/tower "1.5.1"]]
   :plugins [[lein-ring "0.7.1"]]
   :profiles {:dev {:dependencies [[midje "1.3.0" :exclusions [org.clojure/clojure]]]}}
   :checksum-deps true
