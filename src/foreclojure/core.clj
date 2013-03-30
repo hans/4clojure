@@ -27,7 +27,8 @@
             [ring.middleware.stacktrace :only [wrap-stacktrace]]
             [ring.middleware.file-info  :only [wrap-file-info]]
             [ring.middleware.gzip       :only [wrap-gzip]]
-            [mongo-session.core         :only [mongo-session]]))
+            [mongo-session.core         :only [mongo-session]]
+            [taoensso.tower.ring        :only [wrap-i18n-middleware]]))
 
 (def ^:dynamic *block-server* false)
 
@@ -83,7 +84,8 @@
 
 (def app (-> (split-hosts host-handlers)
              wrap-404
-             wrap-gzip))
+             wrap-gzip
+             wrap-i18n-middleware))
 
 (defn register-heartbeat []
   (when-let [period (:heartbeat config)]
